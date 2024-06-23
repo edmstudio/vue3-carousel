@@ -122,7 +122,8 @@ export default defineComponent({
     function updateSlideWidth(): void {
       if (!root.value) return
       const rect = root.value.getBoundingClientRect()
-      slideWidth.value = rect.width / config.itemsToShow
+      const scaleX = rect.width / root.value.offsetWidth
+      slideWidth.value = (rect.width / scaleX) / config.itemsToShow
     }
 
     function updateSlidesData(): void {
